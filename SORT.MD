@@ -51,10 +51,10 @@ students.forEach(s -> studentsSortByName.put(s.getName() + s.hashCode(), s));
 Вывод объектов:
 
 ```Java
-studentsSortByName.entrySet().forEach(s -> System.out.printf("%s\t%d\t%d\n",
-                                            s.getValue().getName(),
-                                            s.getValue().getAge(),
-                                            s.getValue().getGroupNumber()));
+studentsSortByName.forEach((key1, value1) -> System.out.printf("%s\t%d\t%d\n",
+                                                value1.getName(),
+                                                value1.getAge(),
+                                                value1.getGroupNumber()));
 ```
 Результат:
 
@@ -75,10 +75,10 @@ students.forEach(s -> studentsSortByAge.put(s.getAge() + " " + s.hashCode(), s))
 Вывод объектов:
 
 ```Java
-studentsSortByAge.entrySet().forEach(s -> System.out.printf("%s\t%d\t%d\n",
-                                        s.getValue().getName(),
-                                        s.getValue().getAge(),
-                                        s.getValue().getGroupNumber()));
+studentsSortByAge.forEach((key, value) -> System.out.printf("%s\t%d\t%d\n",
+                                            value.getName(),
+                                            value.getAge(),
+                                            value.getGroupNumber()));
 ```
 
 Результат:

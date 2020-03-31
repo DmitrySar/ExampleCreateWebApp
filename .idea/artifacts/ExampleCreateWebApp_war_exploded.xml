@@ -10,8 +10,8 @@
           <element id="library" level="project" name="h2-1.4.200" />
         </element>
       </element>
-      <element id="javaee-facet-resources" facet="ExampleCreateWebApp/web/Web2" />
       <element id="javaee-facet-resources" facet="ExampleCreateWebApp/web/Web" />
+      <element id="javaee-facet-resources" facet="ExampleCreateWebApp/web/Web2" />
     </root>
   </artifact>
 </component>

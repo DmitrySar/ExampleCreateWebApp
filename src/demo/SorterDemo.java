@@ -22,9 +22,9 @@ public class SorterDemo {
         students.forEach(s -> studentsSortByName.put(s.getName() + s.hashCode(), s));
 
         studentsSortByName.forEach((key1, value1) -> System.out.printf("%s\t%d\t%d\n",
-                value1.getName(),
-                value1.getAge(),
-                value1.getGroupNumber()));
+                                                                        value1.getName(),
+                                                                        value1.getAge(),
+                                                                        value1.getGroupNumber()));
 
         System.out.println("\nСортировка по возрасту в обратном порядке:");
 
@@ -32,9 +32,9 @@ public class SorterDemo {
         students.forEach(s -> studentsSortByAge.put(s.getAge() + " " + s.hashCode(), s));
 
         studentsSortByAge.forEach((key, value) -> System.out.printf("%s\t%d\t%d\n",
-                value.getName(),
-                value.getAge(),
-                value.getGroupNumber()));
+                                                                    value.getName(),
+                                                                    value.getAge(),
+                                                                    value.getGroupNumber()));
     }
 
 }

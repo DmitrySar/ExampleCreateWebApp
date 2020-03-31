@@ -4,6 +4,7 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.TreeMap" %>
 <%@ page import="java.util.Collections" %>
+<%@ page import="java.io.IOException" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -19,7 +20,7 @@
 <%
     ArrayList<Student> students = new DBStudent().getAllStudents();
     String upper = request.getParameter("upper");
-    upper = (upper.equals("0"))?"1":"0";
+    upper = (null == upper || upper.equals("0"))?"1":"0";
     Map<String, Student> studentsSorted;
     studentsSorted = upper.equals("0")?new TreeMap<>():new TreeMap<>(Collections.reverseOrder());
     String sort = request.getParameter("sort");
@@ -43,7 +44,7 @@
     </tr>
     <%
         ArrayList<Student> studentsList = new ArrayList<>();
-        studentsSorted.forEach((k, v) -> studentsList.add(v));
+        studentsSorted.forEach((key, value) -> studentsList.add(value));
         for (Student s: studentsList) {
             String row = String.format("<tr><td>%s</td><td>%d</td><td>%d</td></tr>",
                     s.getName(), s.getAge(), s.getGroupNumber());

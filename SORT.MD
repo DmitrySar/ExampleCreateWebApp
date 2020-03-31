@@ -94,3 +94,61 @@ studentsSortByAge.forEach((key, value) -> System.out.printf("%s\t%d\t%d\n",
 
 ---
 hashCode - число, которое является хеш-кодом объекта.
+---
+# Создадим файл sorted.jsp
+
+## За обработку клика по заголовку колонки будет отвечать функция javascript:
+
+```HTML
+<script>
+    function toLink(req) {
+        document.location.href = "sorted.jsp" + req;
+    }
+</script>
+```
+
+## Получаем параметры, формируем список
+```Java
+    //Получаем список из БД
+    ArrayList<Student> students = new DBStudent().getAllStudents();
+    //Получаем параметры HTTP запроса
+    String upper = request.getParameter("upper");
+    upper = (null == upper || upper.equals("0"))?"1":"0";
+    String sort = request.getParameter("sort");
+    sort = null != sort?sort:"";
+    //Для сортировки используем TreeMap
+    Map<String, Student> studentsSorted;
+    studentsSorted = upper.equals("0")?new TreeMap<>():new TreeMap<>(Collections.reverseOrder());
+    //Добавляем объекты в TreeMap для сортировки по выбранным критериям
+    switch (sort) {
+        case "name": students.forEach(s -> studentsSorted.put(s.getName() + s.hashCode(), s));
+            break;
+        case "age": students.forEach(s -> studentsSorted.put(s.getAge() + " " + s.hashCode(), s));
+            break;
+        case "group": students.forEach(s -> studentsSorted.put(s.getGroupNumber() + " " + s.hashCode(), s));
+            break;
+        default: students.forEach(s -> studentsSorted.put(s.getId() + " ", s));
+```
+
+## Обработка нажатий
+```HTML
+    <tr>
+        <th onclick="toLink('?sort=name&upper=<%= upper%>')">Имя</th>
+        <th onclick="toLink('?sort=age&upper=<%= upper%>')">Возраст</th>
+        <th onclick="toLink('?sort=group&upper=<%= upper%>')">Группа</th>
+    </tr>
+```
+
+## Вывод строк
+
+```Java
+        ArrayList<Student> studentsList = new ArrayList<>();
+        studentsSorted.forEach((key, value) -> studentsList.add(value));
+        for (Student s: studentsList) {
+            String row = String.format("<tr><td>%s</td><td>%d</td><td>%d</td></tr>",
+                    s.getName(), s.getAge(), s.getGroupNumber());
+            out.print(row);
+        }
+```
+---
+[Код sorted.jsp]

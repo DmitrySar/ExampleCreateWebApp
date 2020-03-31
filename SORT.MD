@@ -151,4 +151,7 @@ hashCode - число, которое является хеш-кодом объ�
         }
 ```
 ---
-[Код sorted.jsp]
+[Код sorted.jsp](https://github.com/DmitrySar/ExampleCreateWebApp/blob/master/web/sorted.jsp)
+---
+# Результат:
+![Результат](img/table.png)

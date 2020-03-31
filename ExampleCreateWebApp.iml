@@ -29,5 +29,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="h2-1.4.200" level="project" />
+    <orderEntry type="library" name="jsp-api" level="project" />
   </component>
 </module>

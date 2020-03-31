@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ExampleCreateWebApp:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/ExampleCreateWebApp_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ExampleCreateWebApp" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="h2-1.4.200" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="ExampleCreateWebApp/web/Web2" />
+      <element id="javaee-facet-resources" facet="ExampleCreateWebApp/web/Web" />
+    </root>
+  </artifact>
+</component>
